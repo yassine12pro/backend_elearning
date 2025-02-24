@@ -15,8 +15,9 @@ dbConnect();
 app.use(express.json())
 
 app.use(cors({
-    credentials:true,
-    origin:["http://localhost:4200"]
+    origin: '*', // Allow all origins (or use specific frontend URL)
+  methods: 'GET,POST,PUT,DELETE',
+  allowedHeaders: 'Content-Type,Authorization'
 }));
 
 app.use("/api/users" ,userRouter)
